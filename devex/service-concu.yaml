@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: hello-4
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        spec:
+          containerConcurrency: 1
+          container:
+            image: docker.io/csantanapr/helloworld-go
