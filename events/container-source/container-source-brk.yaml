@@ -1,0 +1,16 @@
+apiVersion: sources.eventing.knative.dev/v1alpha1
+kind: ContainerSource
+metadata:
+  name: nodejs-custom-source-brk
+spec:
+  image: docker.io/csantanapr/container-source-nodejs@sha256:4a8c1645099ece34388f696ae2852283db6cda361f926d574803924ff8daed6d
+  sink:
+    apiVersion: eventing.knative.dev/v1alpha1
+    kind: Broker
+    name: default
+  args:
+    - node
+    - index.js
+  env:
+    - name: CETYPE
+      value: "com.example.bar.foo"

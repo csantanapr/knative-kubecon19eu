@@ -4,7 +4,7 @@ metadata:
   name: test-cronjob-source-broker
 spec:
   schedule: "*/2 * * * *"
-  data: '{"message": "Hello world!"}'
+  data: '{"message": "Hello KubeCon!"}'
   sink:
     apiVersion: eventing.knative.dev/v1alpha1
     kind: Broker

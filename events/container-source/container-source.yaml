@@ -1,0 +1,16 @@
+apiVersion: sources.eventing.knative.dev/v1alpha1
+kind: ContainerSource
+metadata:
+  name: nodejs-custom-source
+spec:
+  image: docker.io/csantanapr/container-source-nodejs
+  sink:
+    apiVersion: serving.knative.dev/v1alpha1
+    kind: Service
+    name: event-display
+  args:
+    - node
+    - index.js
+  env:
+    - name: CETYPE
+      value: "com.example.bar.foo"
